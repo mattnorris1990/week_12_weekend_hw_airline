@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Passenger extends Person {
 
     private int numberOfBags;
     private Flight flight;
+    private int seatNumber;
 
     public Passenger(String name, int numberOfBags) {
         super(name);
@@ -20,5 +22,15 @@ public class Passenger extends Person {
 
     public Flight getFlight() {
         return this.flight;
+    }
+
+    public void setSeatNumber(Flight flight) {
+        Random random = new Random();
+        int upperbound = flight.getPlane().getPlaneType().getCapacity();
+        seatNumber = random.nextInt(upperbound) +1;
+    }
+
+    public int getSeatNumber() {
+        return seatNumber;
     }
 }

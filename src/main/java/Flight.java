@@ -63,6 +63,7 @@ public class Flight {
         if (passengers.size() < plane.getPlaneType().getCapacity()){
             passengers.add(passenger);
             passenger.setFlight(flight);
+            passenger.setSeatNumber(flight);
         }
     }
 
