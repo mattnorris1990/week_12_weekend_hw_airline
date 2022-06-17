@@ -51,8 +51,8 @@ public class FlightManagerTest {
         passenger1 = new Passenger("Matt Norris", 2);
         passenger2 = new Passenger("Emily Freeman", 1);
 
-        flight.addPassenger(passenger1);
-        flight.addPassenger(passenger2);
+        flight.addPassenger(passenger1, flight);
+        flight.addPassenger(passenger2, flight);
     }
 
     @Test

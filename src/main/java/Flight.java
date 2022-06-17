@@ -59,9 +59,10 @@ public class Flight {
         return plane.getPlaneType().getCapacity();
     }
 
-    public void addPassenger(Passenger passenger) {
+    public void addPassenger(Passenger passenger, Flight flight) {
         if (passengers.size() < plane.getPlaneType().getCapacity()){
             passengers.add(passenger);
+            passenger.setFlight(flight);
         }
     }
 

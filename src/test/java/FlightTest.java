@@ -95,18 +95,19 @@ public class FlightTest {
 
     @Test
     public void canAddPassengerToFlight(){
-        flight.addPassenger(passenger1);
+        flight.addPassenger(passenger1, flight);
         assertEquals(1, flight.getNumberofPassengers());
+        assertEquals(flight, passenger1.getFlight());
     }
 
     @Test
     public void cannotAddPassengersIfFlightIsFull(){
-        flight.addPassenger(passenger1);
-        flight.addPassenger(passenger1);
-        flight.addPassenger(passenger1);
-        flight.addPassenger(passenger1);
-        flight.addPassenger(passenger1);
-        flight.addPassenger(passenger1);
+        flight.addPassenger(passenger1, flight);
+        flight.addPassenger(passenger1, flight);
+        flight.addPassenger(passenger1, flight);
+        flight.addPassenger(passenger1, flight);
+        flight.addPassenger(passenger1, flight);
+        flight.addPassenger(passenger1, flight);
         assertEquals(5, flight.getNumberofPassengers());
     }
 
