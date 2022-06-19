@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Passenger extends Person {
 
@@ -25,9 +24,23 @@ public class Passenger extends Person {
     }
 
     public void setSeatNumber(Flight flight) {
-        Random random = new Random();
-        int upperbound = flight.getPlane().getPlaneType().getCapacity();
-        seatNumber = random.nextInt(upperbound) +1;
+
+        int min = 1;
+        int max = flight.getPlane().getPlaneType().getCapacity();
+        int newSeat = (int)Math.floor(Math.random()*(max-min+1)+min);
+
+        ArrayList<Integer> filledSeats;
+        filledSeats = new ArrayList<>();
+
+        for (Passenger passenger : flight.getPassengers()){
+            filledSeats.add(passenger.getSeatNumber());
+        }
+
+        while (filledSeats.contains(newSeat)){
+            newSeat = (int)Math.floor(Math.random()*(max-min+1)+min);
+        }
+
+        seatNumber = newSeat;
     }
 
     public int getSeatNumber() {

@@ -23,6 +23,8 @@ public class FlightTest {
     private Plane plane;
 
     private Passenger passenger1;
+    private Passenger passenger2;
+    private Passenger passenger3;
 
     @Before
     public void before () {
@@ -46,6 +48,8 @@ public class FlightTest {
         flight = new Flight(pilots, cabinCrewMembers, plane, "FR789", "FRA", "EDI");
 
         passenger1 = new Passenger("Matt Norris", 2);
+        passenger2 = new Passenger("Emily Freeman", 2);
+        passenger3 = new Passenger("Thomas macColl", 1);
     }
 
     @Test
@@ -97,7 +101,12 @@ public class FlightTest {
     @Test
     public void canAddPassengerToFlight(){
         flight.addPassenger(passenger1, flight);
-        assertEquals(1, flight.getNumberofPassengers());
+        flight.addPassenger(passenger2, flight);
+        flight.addPassenger(passenger3, flight);
+//        System.out.println(passenger1.getSeatNumber());
+//        System.out.println(passenger2.getSeatNumber());
+//        System.out.println(passenger3.getSeatNumber());
+        assertEquals(3, flight.getNumberofPassengers());
         assertEquals(flight, passenger1.getFlight());
     }
 
